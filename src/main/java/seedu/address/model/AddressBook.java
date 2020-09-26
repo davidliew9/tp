@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.UniquePersonList;
 
 /**
@@ -91,6 +92,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removePerson(Person key) {
         persons.remove(key);
+    }
+
+    public void setRemark(Person target, Remark remark) {
+        Person newPerson = new Person(target.getName(), target.getPhone(),
+                target.getEmail(), target.getAddress(), target.getTags());
+        newPerson.setRemark(remark);
+        persons.setPerson(target, newPerson);
     }
 
     //// util methods
